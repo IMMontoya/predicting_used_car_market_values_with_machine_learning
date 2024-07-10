@@ -10,6 +10,8 @@ Rusty Bargain is interested in:
 - Training Efficiency: Streamline model training to minimize time and computational resources while maintaining high prediction accuracy.
 - Prediction Speed: Optimize the prediction process for rapid valuation, enhancing user experience within the Rusty Bargain app.
 
+[Notebook](/notebook.ipynb)
+
 ## Dataset Description
 
 The dataset used in this project contains historical data of used cars, including their technical specifications, trim versions, and prices. This data is crucial for building a machine learning model to predict the market value of used cars accurately.
