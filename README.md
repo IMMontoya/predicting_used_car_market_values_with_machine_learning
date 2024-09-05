@@ -1,5 +1,23 @@
 # Predicting Used Car Market Values with Machine Learning
 
+## Table of Contents
+
+- [Notebook](/predict_used_car_value.ipynb)
+- [Introduction](#introduction)
+- [Dataset Description](#dataset-description)
+- [Methodology](#methodology)
+  - [Data Cleaning and Preprocessing](#data-cleaning-and-preprocessing)
+  - [The Final Data Set](#the-final-data-set)
+- [Model Tunning and Training](#model-tunning-and-training)
+  - [Random Forrest](#random-forrest)
+  - [XGBoost](#xgboost)
+  - [LightGBM](#lightgbm)
+  - [CatBoost](#catboost)
+- [Model Analysis](#model-analysis)
+- [Conclusions](#conclusions)
+- [Further Recommendations](#further-recommendations)
+- [Libraries Used](#libraries-used)
+
 ## Introduction
 
 Rusty Bargain, a leading used car sales service, is developing a new mobile application aimed at attracting prospective customers. The app's primary feature is the ability to determine the market value of a user's car. To achieve this, the project requires building a machine learning model capable of accurately predicting car values based on historical data encompassing technical specifications, trim versions, and past prices.
@@ -9,8 +27,6 @@ Rusty Bargain is interested in:
 - Prediction Quality: Develop a model that reliably estimates car market values, ensuring users receive accurate and dependable information.
 - Training Efficiency: Streamline model training to minimize time and computational resources while maintaining high prediction accuracy.
 - Prediction Speed: Optimize the prediction process for rapid valuation, enhancing user experience within the Rusty Bargain app.
-
-[Notebook](/notebook.ipynb)
 
 ## Dataset Description
 
@@ -209,7 +225,6 @@ Relevant statistics on performance were stored in the results_df.
 | 3 | LightGBM            | 1844.570307 | 327.0        | 29.40          | 0.327       | 0.02940       |
 | 4 | CatBoost            | 1779.668107 | 1090.0       | 6.36           | 1.090       | 0.00636       |
 
-
 ![RMSE Scores](/images/rmse.png)
 
 Excluding the baseline check of the Linear Regression model, each tested model has similar performance within a range of 130 Euros. The best performing model (XGBoost) had an RMSE value of 960 Euros better than the baseline test.
@@ -235,4 +250,17 @@ Given the full scope of Rusty Bargains business needs, I suggest they implement 
 Allocating more computational resources would likely improve performance due to two main factors:
 
 1. Maintaining data integrity. The entire postal code feature needed to be removed from the dataset in order to make the regression problem simple enough for the limited computational resources. Similarly, car models outside the 200 most popular had to be collapsed into the 'unknown' column for the same reason.
-2. More and deeper trees. The hyperparameter tuning process had to remain limited to the low end of computational demand in order to not crash Rusty Bargain's infrastructure. In each model trained, the best parameters met the ceiling for many arguments, specifically the n_estimators. It is likely that each of these models would perform better with n_estimators >= 100. 
+2. More and deeper trees. The hyperparameter tuning process had to remain limited to the low end of computational demand in order to not crash Rusty Bargain's infrastructure. In each model trained, the best parameters met the ceiling for many arguments, specifically the n_estimators. It is likely that each of these models would perform better with n_estimators >= 100.
+
+## Libraries Used
+
+Python 3.10.9  
+numpy=1.25.2  
+pandas=2.0.3  
+matplotlib=3.7.1  
+seaborn=0.13.1  
+scipy=1.13.0  
+sklearn=1.2.2  
+xgboost=1.5.1  
+lightgbm=3.3.1  
+catboost=1.0.5
