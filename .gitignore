@@ -1,0 +1,5 @@
+# Hidden files
+._*
+
+# Data directory
+data/
